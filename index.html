@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Little Chart</title>
+</head>
+<body>
+  <h2>Sample Bar Chart</h2>
+  <div id="chart"></div>
+
+  <script type="module">
+    import * as Plot from "https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm";
+
+    const data = [
+      { name: "Apples", value: 10 },
+      { name: "Bananas", value: 15 },
+      { name: "Cherries", value: 8 }
+    ];
+
+    const chart = Plot.plot({
+      marks: [
+        Plot.barY(data, { x: "name", y: "value" })
+      ],
+      width: 400,
+      height: 300
+    });
+
+    document.getElementById("chart").append(chart);
+  </script>
+</body>
+</html>
